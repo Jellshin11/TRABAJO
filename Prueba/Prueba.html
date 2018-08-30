@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="prueba.css">
+</head>
+<body>
+    <header><h1>Buscador</h1></header>
+    <table>
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+      </tr>
+      </thead>
+      <tbody id="contenido"></tbody> 
+        </table>
+      <form action= "javascript:void(0);" id="buscador"><p>Inserte su busqueda:</p>
+        <input type="search" name ="nombre" id="Buscar" placeholder="Buscar" onkeyup="busco()"><button>Buscar</button>
+      </form>
+      <script>
+      class busqueda{
+        constructor(){
+          this.productos= [ {nombre:"Jabon", precio:"18",cantidad:"100" },{nombre:"Champu", precio:"80",cantidad:"200"
+        },{nombre:"Arroz", precio:"12",cantidad:"250"
+        },{nombre:"Azucar", precio:"12",cantidad:"300"
+        }];
+        this.productos2=this.productos;
+        this.agregar();
+      console.log(this.producto);
+         }        
+         agregar(){
+        let tabla = document.getElementById("contenido");
+        while (tabla.rows.length> 0) {
+          tabla.deleteRow(0);
+        }
+        this.productos.forEach(producto => {
+          let fila= tabla.insertRow(tabla.rows.length);
+          fila.insertCell(0).innerHTML = producto.nombre;
+          fila.insertCell(1).innerHTML = producto.precio;
+          fila.insertCell(2).innerHTML = producto.cantidad;
+        });
+      }
+
+      buscar(id){           
+        let busco = document.getElementById(id).value;
+        this.productos=this.productos2;
+        this.productos= this.productos.filter(
+         producto=>{
+           return producto.nombre.toLowerCase().indexOf(busco)>-1;
+
+         }
+        );
+    this.agregar();
+}
+}    
+let busco = new busqueda;
+var vari = false;
+let form = document.getElementById("buscador");
+form.addEventListener('submit', ()=>{
+    busco.buscar('Buscar');
+    this.agregar();
+});
+</script>
+</body>
+</html>

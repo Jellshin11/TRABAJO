@@ -1,0 +1,18 @@
+tr:hover{
+    background-color: #4444;
+    color: white;
+}
+table{
+    padding: 10%;
+    margin-left: 120px;
+    width: 60%;
+}
+header{
+    background: #4444;
+    height: 50px;
+}
+h1{
+    font-family: gill sans;
+    font-size: px;
+    color: white;
+}
